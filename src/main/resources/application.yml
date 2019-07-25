@@ -1,0 +1,13 @@
+#server:
+#  servlet:
+#    context-path: /reposervice
+
+provider-service:
+  gitHub:
+    baseUrl: https://api.github.com
+    endpointUrl: /users/placeholder/repos
+  gitLab:
+    baseUrl: https://gitlab.com
+    endpointUrl: /api/v4/users/placeholder/projects
+
+
