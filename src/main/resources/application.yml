@@ -1,6 +1,6 @@
-#server:
-#  servlet:
-#    context-path: /reposervice
+server:
+  servlet:
+    context-path: /reposervice
 
 provider-service:
   gitHub:
