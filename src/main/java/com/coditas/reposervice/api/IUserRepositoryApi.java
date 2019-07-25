@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 public interface IUserRepositoryApi {
 
     @GetMapping("/{user}/repositories")
-    ResponseEntity<AggregateResponse> getReposiotories(@PathVariable String user, @RequestHeader(value = "Authorization", required = false) String authorizatio);
+    ResponseEntity<AggregateResponse> getReposiotories(@PathVariable String user, @RequestHeader(value = "Authorization", required = false) String authorization);
 
     @GetMapping("/{user}/ownrepositories")
-    ResponseEntity<AggregateResponse> getOwnReposiotories(@PathVariable String user, @RequestHeader(value = "Authorization", required = false) String authorizatio);
+    ResponseEntity<AggregateResponse> getOwnReposiotories(@PathVariable String user, @RequestHeader(value = "Authorization", required = false) String authorization);
 }
