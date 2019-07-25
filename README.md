@@ -40,7 +40,7 @@ Functionality has been implemented by using spring boot , Rest controller and Re
 
 How to build and run
 ===========================
-Maven is the build tool is used for this repository and by jar file can be created running commands like mvn clean insall.
+Maven is the build tool  used for this repository and  jar file can be created running commands like mvn clean insall.
 
 When this repository is cloned into local machine it can run on IDE
 
@@ -50,15 +50,15 @@ Further improvements
 improvement 1
 ==============
 
-There are limitation when this service calls github and gitlab provider apis and it can allow only 60 API calls from one IP address per day but when authorization(username and password) information are passed it works fine.
+There are limitations when this service calls github and gitlab provider apis and provider can allow only 60 API calls from one IP address per day but when authorization(username and password) information are passed it works fine.
 
 without authorization 60 calls are allowed per day and with authorization there is no limitation.
 
-functionality has been implemented for both casess
+functionality has been implemented for both cases
 
 if given user does not want to provide authorization information then we can provide alterantive solution by implementing cache (Spring cacheManager or custom implementation with Concurrent hash map).
 
-a baground thread runs for each 10 mins or 15 mins periodically and it calls the provider apis and fetch the repositories information and store it into cache. if given user hits the same subsequently, data is fetched from cache.
+a back ground thread runs for each 10 mins or 15 mins periodically and it calls the provider apis and fetch the repositories information and store it into cache. if given user hits the same subsequently, data is fetched from cache.
 
 By implementing cache we can get 2 benfits
 1. we can avoid facing issue of limitation of 60 api calls per day
@@ -69,7 +69,7 @@ improvement 2
 =============
 I provided the basic exception handling with @ControllerAdvice and @ExceptionHandler but it should be enhanced to cover all the negative cases.
 
-Improvement 3
+improvement 3
 ==============
 Junit and funcationality tests should be be written
 
