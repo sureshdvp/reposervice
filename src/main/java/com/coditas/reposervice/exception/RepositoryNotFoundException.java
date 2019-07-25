@@ -1,8 +1,6 @@
 package com.coditas.reposervice.exception;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
 
 public class RepositoryNotFoundException extends RuntimeException {
 
