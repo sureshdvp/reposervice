@@ -32,7 +32,6 @@ GitLab provider API
 https://gitlab.com/api/v4/users/{UserName}/projects
 
 
-
 Implementation:
 ===============
 
