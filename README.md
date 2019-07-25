@@ -47,7 +47,7 @@ When this repository is cloned into local machine it can run on IDE
 Further improvements
 ==========================================
 
-improment 1
+improvement 1
 ==============
 
 There are limitation when this service calls github and gitlab provider apis and it can allow only 60 API calls from one IP address per day but when authorization(username and password) information are passed it works fine.
