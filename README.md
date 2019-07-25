@@ -26,7 +26,7 @@ GitHub provider API
 
  https://api.github.com/users/{userName}/repos
 
-GitHub provider API
+GitLab provider API
 ====================
 
 https://gitlab.com/api/v4/users/{UserName}/projects
