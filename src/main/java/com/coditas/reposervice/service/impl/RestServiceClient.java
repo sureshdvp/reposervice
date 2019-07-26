@@ -37,7 +37,12 @@ public class RestServiceClient {
 
     private static final Logger logger = LoggerFactory.getLogger(RestServiceClient.class);
 
-
+    /**
+     * This method calls provider service
+     * @param user
+     * @param authorization
+     * @return List<GitHubJsonEntity>
+     */
     public List<GitHubJsonEntity> invokeGitHubService(String user, String authorization) {
         try {
             ResponseEntity<List<GitHubJsonEntity>> responseEntity = restTemplate.exchange(getGitHubUrl(user), HttpMethod.GET, getRequestEntity(authorization), new ParameterizedTypeReference<List<GitHubJsonEntity>>() {
@@ -54,7 +59,12 @@ public class RestServiceClient {
 
     }
 
-
+    /**
+     * This method calls provider service
+     * @param user
+     * @param authorization
+     * @return List<GitLabJsonEntity>
+     */
     public List<GitLabJsonEntity> invokeGitLabService(String user, String authorization) {
         try {
             ResponseEntity<List<GitLabJsonEntity>> responseEntity = restTemplate.exchange(getGitLabUrl(user), HttpMethod.GET, getRequestEntity(authorization), new ParameterizedTypeReference<List<GitLabJsonEntity>>() {
