@@ -44,7 +44,7 @@ public class RestServiceClient {
             });
             return responseEntity.getBody();
         } catch (Exception ex) {
-            logger.warn("[RestServiceClient] Error occured while executing invokeGitHubService");
+            logger.error("[RestServiceClient] Error occured while executing invokeGitHubService, stack trace {}", ex);
             if(ex.getMessage().contains("404")){
                 throw new RepositoryNotFoundException(HttpStatus.NOT_FOUND, ex.getMessage());
             }
@@ -61,7 +61,7 @@ public class RestServiceClient {
             });
             return responseEntity.getBody();
         } catch (Exception ex) {
-            logger.warn("[RestServiceClient] Error occured while executing invokeGitLabService");
+            logger.error("[RestServiceClient] Error occured while executing invokeGitLabService, stack trace",ex);
             if(ex.getMessage().contains("404")){
                 throw new RepositoryNotFoundException(HttpStatus.NOT_FOUND, ex.getMessage());
             }
