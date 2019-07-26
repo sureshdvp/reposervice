@@ -49,7 +49,7 @@ public class UserRepositoryServiceImpl implements IUserRepositoryService {
             gitHubRepoDTOS = gitHubRepoDTOFuture.get();
             aggregateResponse.setGitHubRepositories(gitHubRepoDTOS);
         }catch (Exception ex){
-            logger.warn("[UserRepositoryServiceImpl] Error while getting gitHubRepoDTO from async call future");
+            logger.error("[UserRepositoryServiceImpl] Error while getting gitHubRepoDTO from async call future. Stack trace = {}", ex);
         }
         if (!ObjectUtils.isEmpty(gitLabJsonEntities)) {
             aggregateResponse.setGitLabRepositories(mapToGitLabRepoDTO(gitLabJsonEntities));
@@ -58,7 +58,7 @@ public class UserRepositoryServiceImpl implements IUserRepositoryService {
         }
 
         if (ObjectUtils.isEmpty(gitLabJsonEntities) && ObjectUtils.isEmpty(gitHubRepoDTOS)) {
-            logger.info("[UserRepositoryServiceImpl] Repository is not found in git hub and gitlab for the user {}", user);
+            logger.error("[UserRepositoryServiceImpl] Repository is not found in git hub and gitlab for the user {}", user);
             throw new RepositoryNotFoundException(HttpStatus.NOT_FOUND, "Repository is not found in git hub and gitlab for the user " + user);
         }
         logger.info("[UserRepositoryServiceImpl] execution completed for getRepositories");
@@ -75,7 +75,7 @@ public class UserRepositoryServiceImpl implements IUserRepositoryService {
         try {
             gitHubJsonEntities = gitHubJsonEntityFuture.get();
         }catch (Exception ex){
-            logger.warn("[UserRepositoryServiceImpl] Error while getting gitHubJsonEntities from async call");
+            logger.error("[UserRepositoryServiceImpl] Error while getting gitHubJsonEntities from async call. stack trace = {}",ex);
         }
         List<GitLabJsonEntity> gitLabJsonEntities = restServiceClient.invokeGitLabService(user, authorization);
         List<GitLabJsonEntity> gitLabOwnRepositories = null;
@@ -103,7 +103,7 @@ public class UserRepositoryServiceImpl implements IUserRepositoryService {
         }
 
         if (ObjectUtils.isEmpty(gitHubJsonEntities) && ObjectUtils.isEmpty(gitLabJsonEntities)) {
-            logger.info("[UserRepositoryServiceImpl] Repository is not found in git hub and gitlab for the user {}", user);
+            logger.warn("[UserRepositoryServiceImpl] Repository is not found in git hub and gitlab for the user {}", user);
             throw new RepositoryNotFoundException(HttpStatus.NOT_FOUND, "Repository is not found in git hub and gitlab for the user " + user);
         }
         return aggregateResponse;
