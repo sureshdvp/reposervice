@@ -36,6 +36,13 @@ public class UserRepositoryServiceImpl implements IUserRepositoryService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserRepositoryServiceImpl.class);
 
+    /**
+     * This method calls provider services and aggreate the
+     * repsonse recieved from the provider
+     * @param user
+     * @param authorization
+     * @return AggregateResponse
+     */
     @Override
     public AggregateResponse getRepositories(String user, String authorization) {
 
@@ -65,6 +72,14 @@ public class UserRepositoryServiceImpl implements IUserRepositoryService {
         return aggregateResponse;
     }
 
+    /**
+     * This method calls provider services and filter
+     * the response for own repositories and aggreage
+     * the repsonse
+     * @param user
+     * @param authorization
+     * @return AggregateResponse
+     */
     @Override
     public AggregateResponse getOwnRepositories(String user, String authorization) {
         logger.info("[UserRepositoryServiceImpl] execution started for getOwnRepositories");
